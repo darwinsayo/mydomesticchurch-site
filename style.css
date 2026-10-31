@@ -144,5 +144,7 @@ footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{mar
 .feat .ftext{max-width:30em}
 .feat h2{margin-top:0}
 .feat p{color:#46433b}
-@media(min-width:760px){.feat{grid-template-columns:1fr 236px;gap:48px;justify-items:stretch}.feat:nth-child(even){grid-template-columns:236px 1fr}.feat:nth-child(even) .phone{order:-1}}
+@media(min-width:760px){.feat{grid-template-columns:1fr 236px;gap:48px;justify-items:stretch}.feat.flip{grid-template-columns:236px 1fr}.feat.flip .phone{order:-1}}
 .card a{color:var(--red)}
+
+.feat.nophone{display:block;text-align:center}.feat.nophone .ftext{margin:0 auto}
