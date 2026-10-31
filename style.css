@@ -148,3 +148,16 @@ footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{mar
 .card a{color:var(--red)}
 
 .feat.nophone{display:block;text-align:center}.feat.nophone .ftext{margin:0 auto}
+
+/* Everything page */
+.tease{margin:2.6em auto 0;max-width:34em;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 22px}
+.tease h2{margin-bottom:.3em}
+.tease p{color:var(--muted);margin:0 0 1.2em}
+.egroup{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 22px;margin:0 0 20px}
+.egroup h2{margin-bottom:.15em}
+.egroup .wink{color:var(--red);font-style:italic;font-family:var(--serif);margin:0 0 .9em}
+.egroup ul{list-style:none;margin:0;padding:0}
+.egroup li{padding:7px 0 7px 28px;position:relative;border-top:1px solid var(--line)}
+.egroup li:first-child{border-top:0}
+.egroup li:before{content:"\2713";position:absolute;left:2px;color:var(--sage);font-weight:700}
+.egroup li b{color:var(--sage-dark)}
