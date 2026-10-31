@@ -148,3 +148,7 @@ footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{mar
 .card a{color:var(--red)}
 
 .feat.nophone{display:block;text-align:center}.feat.nophone .ftext{margin:0 auto}
+
+.soon{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:99px;background:var(--wheat-soft);color:#6b5a2e;border:1px solid var(--line)}
+.soon.live{background:#e6eddf;color:#3f5338}
+.prose .note{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--muted)}
