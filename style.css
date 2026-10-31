@@ -135,3 +135,6 @@ footer em{font-family:var(--serif);display:block;margin-bottom:8px;color:var(--w
 @media(max-width:620px){.navlinks a:not(.btn){display:none}.top .btn{padding:10px 18px}}
 footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{margin:0 10px}
 .top .btn{white-space:nowrap}.logo{white-space:nowrap}@media(max-width:620px){.top .btn{font-size:.85rem;padding:9px 14px}.logo{font-size:.95rem}}
+
+.swipe{display:none;text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 6px}
+@media(max-width:759px){.swipe{display:block}.phones{scrollbar-width:thin;scrollbar-color:var(--sage) transparent;padding-bottom:14px}.phones::-webkit-scrollbar{height:6px}.phones::-webkit-scrollbar-thumb{background:var(--sage);border-radius:6px}}
