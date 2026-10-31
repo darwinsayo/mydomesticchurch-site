@@ -138,3 +138,11 @@ footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{mar
 
 .swipe{display:none;text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 6px}
 @media(max-width:759px){.swipe{display:block}.phones{scrollbar-width:thin;scrollbar-color:var(--sage) transparent;padding-bottom:14px}.phones::-webkit-scrollbar{height:6px}.phones::-webkit-scrollbar-thumb{background:var(--sage);border-radius:6px}}
+
+.feats{display:grid;gap:44px;margin-top:2.2em}
+.feat{display:grid;gap:22px;align-items:center;justify-items:center}
+.feat .ftext{max-width:30em}
+.feat h2{margin-top:0}
+.feat p{color:#46433b}
+@media(min-width:760px){.feat{grid-template-columns:1fr 236px;gap:48px;justify-items:stretch}.feat:nth-child(even){grid-template-columns:236px 1fr}.feat:nth-child(even) .phone{order:-1}}
+.card a{color:var(--red)}
