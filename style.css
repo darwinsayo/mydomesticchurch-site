@@ -31,6 +31,7 @@ section{padding:56px 0}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .logo{font-family:var(--serif);color:var(--sage-dark);font-weight:600;text-decoration:none;display:flex;gap:8px;align-items:center}
 .logo span{color:var(--wheat);font-size:1.2rem}
+.logo img{width:16px;height:23px;object-fit:contain}
 .top .btn{padding:8px 18px;font-size:.9rem}
 
 /* hero */
