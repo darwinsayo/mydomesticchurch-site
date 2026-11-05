@@ -130,12 +130,8 @@ footer em{font-family:var(--serif);display:block;margin-bottom:8px;color:var(--w
 
 .page{padding:48px 0 70px} .prose{max-width:680px;margin:0 auto}
 .prose h2{margin-top:1.6em;font-size:1.35rem} .prose p,.prose li{color:#46433b}
-.prose ul{padding-left:1.2em} .navlinks{display:flex;gap:18px;align-items:center}
-.navlinks a:not(.btn){color:var(--sage-dark);text-decoration:none;font-size:.95rem}
-.navlinks a:not(.btn):hover{text-decoration:underline}
-@media(max-width:780px){.navlinks a:not(.btn){display:none}.top .btn{padding:10px 18px}}
+.prose ul{padding-left:1.2em}
 footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{margin:0 10px}
-.top .btn{white-space:nowrap}.logo{white-space:nowrap}@media(max-width:620px){.top .btn{font-size:.85rem;padding:9px 14px}.logo{font-size:.95rem}}
 
 .swipe{display:none;text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 6px}
 @media(max-width:759px){.swipe{display:block}.phones{scrollbar-width:thin;scrollbar-color:var(--sage) transparent;padding-bottom:14px}.phones::-webkit-scrollbar{height:6px}.phones::-webkit-scrollbar-thumb{background:var(--sage);border-radius:6px}}
@@ -209,7 +205,6 @@ footer nav a{white-space:nowrap;display:inline-block;margin-bottom:6px}
 .help-foot{margin-top:40px;color:var(--muted)}
 .help-foot a{color:var(--red)}
 .help-foot .post-crucifix{margin-top:0}
-.navlinks a[aria-current]{text-decoration:underline;text-underline-offset:4px}
 
 @media(min-width:960px){
   .help-head,.help-grid{max-width:none}
@@ -233,7 +228,4 @@ footer nav a{white-space:nowrap;display:inline-block;margin-bottom:6px}
 .to-topics{position:fixed;right:16px;bottom:18px;z-index:9;background:var(--sage-dark);color:#fff;text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(40,40,30,.25);opacity:0;pointer-events:none;transition:opacity .2s}
 .to-topics.show{opacity:1;pointer-events:auto}
 @media(min-width:960px){.to-topics{display:none}}
-/* top bar: keep each link on one line; show the links only where they fit */
-.navlinks{gap:16px;margin-left:20px}.navlinks a{white-space:nowrap}
-@media(max-width:1099px){.navlinks a:not(.btn){display:none}}
 #topics{scroll-margin-top:80px}

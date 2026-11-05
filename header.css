@@ -1,0 +1,39 @@
+/* Site header: same on every page. Four links on wide screens, a Menu list on phones and tablets. */
+.top{position:sticky;top:0;z-index:20;background:rgba(244,237,224,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #E4D9C3}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;max-width:1080px;margin:0 auto;padding:0 22px}
+.top .logo{display:flex;align-items:center;gap:9px;font-family:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;font-size:1.1rem;font-weight:600;color:#3A4A35;text-decoration:none;white-space:nowrap}
+.top .logo img{width:16px;height:23px;object-fit:contain}
+.mnav{display:flex;align-items:center;gap:22px;font:400 .95rem/1.2 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.mnav>a:not(.hbtn){color:#3A4A35;text-decoration:none;white-space:nowrap}
+.mnav>a:not(.hbtn):hover{text-decoration:underline;text-underline-offset:4px}
+.mnav a[aria-current]{text-decoration:underline;text-underline-offset:4px}
+.hbtn{display:inline-block;background:#8A2F3A;color:#fff;text-decoration:none;white-space:nowrap;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.9rem;box-shadow:0 2px 0 #6C2330}
+.hbtn:hover{background:#6C2330}
+.top details.menu{position:relative;display:none;background:none;border:0;border-radius:0;margin:0;padding:0}
+.top .menu summary{min-height:0;justify-content:flex-start;line-height:1.2;font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:transparent;list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 13px;border:1.5px solid #566B4F;border-radius:999px;color:#3A4A35;font-weight:600;font-size:.9rem;white-space:nowrap;-webkit-user-select:none;user-select:none}
+.top .menu summary::-webkit-details-marker{display:none}
+.top .menu summary:after{content:none;display:none}
+.menu .bars,.menu .bars:before,.menu .bars:after{display:block;width:14px;height:1.5px;background:currentColor;border-radius:1px;position:relative}
+.menu .bars:before,.menu .bars:after{content:"";position:absolute;left:0}
+.menu .bars:before{top:-4.5px}.menu .bars:after{top:4.5px}
+.top .menu[open] summary{background:#566B4F;color:#fff}
+.menu-panel{position:absolute;right:0;top:calc(100% + 10px);width:250px;background:#FBF7EF;border:1px solid #E4D9C3;border-radius:14px;box-shadow:0 12px 30px rgba(50,45,30,.18);padding:8px;display:flex;flex-direction:column}
+.menu-panel a{color:#3A4A35;text-decoration:none;padding:11px 14px;border-radius:9px;font-size:1rem}
+.menu-panel a:hover,.menu-panel a:active{background:#F3E3BE}
+.menu-panel a[aria-current]{font-weight:600;background:#F4EDE0;text-decoration:none}
+.menu-panel a.hbtn{color:#fff;font-weight:600}
+.menu-panel .hbtn{margin:8px 4px 4px;text-align:center;padding:12px 18px;font-size:.95rem}
+.menu-panel .hbtn:hover{background:#6C2330}
+.menu-panel .hbtn{display:none}
+@media(max-width:879px){
+  .mnav>a:not(.hbtn){display:none}
+  .top details.menu{display:block}
+  .mnav{gap:10px}
+}
+@media(max-width:520px){
+  .top .wrap{padding:0 16px;gap:10px}
+  .top .logo{font-size:1rem}
+  .mnav>.hbtn{display:none}
+  .menu-panel .hbtn{display:block}
+  .menu-panel{width:min(270px,calc(100vw - 32px))}
+}
