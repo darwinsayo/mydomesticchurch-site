@@ -153,3 +153,26 @@ footer a{color:var(--wheat-soft)} footer nav{margin-bottom:10px}footer nav a{mar
 .soon{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:99px;background:var(--wheat-soft);color:#6b5a2e;border:1px solid var(--line)}
 .soon.live{background:#e6eddf;color:#3f5338}
 .prose .note{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--muted)}
+
+/* blog */
+.lede-s{font-size:1.08rem;color:var(--muted);margin-bottom:28px}
+.postcard{display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;margin-bottom:22px}
+.postcard img{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;display:block}
+.postcard .pc-body{padding:16px 18px 18px}
+.postcard h2{margin:.25em 0 .35em;font-size:1.35rem}
+.postcard p{margin:0 0 .6em}
+.postcard .more{color:var(--sage);font-weight:600;font-size:.95rem}
+.postcard:hover h2{text-decoration:underline}
+.post-date{display:block;color:var(--muted);font-size:.88rem;letter-spacing:.02em}
+.post .eyebrow a{color:inherit;text-decoration:none}
+.post-sub{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--muted);margin:-.2em 0 .5em}
+.post-hero{width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;display:block;border-radius:14px;margin:22px 0 8px}
+.post.page .prose p{font-family:var(--serif);font-size:1.12rem;line-height:1.7}
+.post figure{margin:28px 0}
+.post figure img{width:100%;height:auto;display:block;border-radius:12px}
+.post figcaption{text-align:center;font-style:italic;color:var(--muted);font-size:.9rem;margin-top:8px}
+.post .signoff{margin-top:1.6em}
+.post-crucifix{display:block;width:22px;height:auto;margin:26px auto 8px;opacity:.85}
+.post-back{text-align:center}
+.post-back a{color:var(--sage)}
+footer nav a{white-space:nowrap;display:inline-block;margin-bottom:6px}
