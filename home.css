@@ -110,3 +110,6 @@ summary::-webkit-details-marker{display:none}
 #waitlist{scroll-margin-top:70px}
 .wl-small a{color:var(--deep)}
 @media (max-width:640px){.wl-row{grid-template-columns:1fr}}
+.wl .wl-check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;color:var(--ink);font-size:.95rem}
+.wl .wl-check input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--sage)}
+.wl-fine{text-align:center;font-size:.8rem;color:var(--muted);margin:0}

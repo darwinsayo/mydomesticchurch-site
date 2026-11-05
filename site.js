@@ -23,7 +23,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-mail]'),function(e
   function say(t, bad){ msg.textContent = t; msg.className = "wl-msg" + (bad ? " err" : ""); }
   f.addEventListener("submit", function(e){
     e.preventDefault();
-    var d = {}; Array.prototype.forEach.call(f.elements, function(el){ if (el.name) d[el.name] = el.value.trim(); });
+    var d = {}; Array.prototype.forEach.call(f.elements, function(el){ if (el.name) d[el.name] = el.type === "checkbox" ? el.checked : el.value.trim(); });
     if (!d.name || !d.email || !d.kids) { say("Please fill in your name, email and your children's ages.", true); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { say("That email address doesn't look right. Please check it.", true); return; }
     d.ms = Date.now() - opened;
