@@ -92,3 +92,21 @@ footer .wrap{flex-wrap:wrap;gap:10px 24px}
 summary::-webkit-details-marker{display:none}
 .feat a,details a{color:var(--deep)}
 @media(max-width:760px){.fnav{justify-content:center}}
+
+/* Waitlist form */
+.cta .caps{margin-bottom:12px}
+.wl{max-width:560px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:14px}
+.wl-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wl label{display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;color:var(--deep)}
+.wl label span{font-weight:400;color:var(--muted)}
+.wl input,.wl textarea{font:inherit;font-weight:400;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:11px 12px;width:100%}
+.wl input:focus,.wl textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.wl .btn{align-self:center;border:0;cursor:pointer;margin-top:6px}
+.wl .btn[disabled]{opacity:.6;cursor:default}
+.wl-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.wl-msg{text-align:center;margin:0;min-height:1.4em;color:var(--deep);font-weight:600}
+.wl-msg.err{color:var(--red)}
+.wl-small{font-size:.9rem;margin:22px auto 0!important}
+#waitlist{scroll-margin-top:70px}
+.wl-small a{color:var(--deep)}
+@media (max-width:640px){.wl-row{grid-template-columns:1fr}}
