@@ -31,7 +31,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-mail]'),function(e
     fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, j: j }; }); })
       .then(function(res){
-        if (res.ok) { f.reset(); say("Thank you! You're on the list. I'll write to you when there's a place for your family."); btn.disabled = false; return; }
+        if (res.ok) { f.reset(); say("Thank you! You're on the tester waitlist. I'll write to you when there's a place for your family."); btn.disabled = false; return; }
         btn.disabled = false;
         say(res.j.error || ("Sorry, that didn't go through. Please write to " + SITE.email + " instead."), true);
       })
