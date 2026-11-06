@@ -11,7 +11,7 @@ export async function onRequestPost({ request, env }) {
   try { d = await request.json(); } catch { return json({ error: 'Sorry, that did not go through. Please try again.' }, 400); }
 
   // Spam guard: a hidden field people never see, and a form filled in faster than a person could.
-  if (d.website || Number(d.ms) < 3000) return json({ ok: true });
+  if (d.website || Number(d.ms) < 1000) return json({ ok: true });
 
   const name = clean(d.name, 100), email = clean(d.email, 200).toLowerCase(), kids = clean(d.kids, 300);
   const updates = d.updates === true ? 1 : 0;

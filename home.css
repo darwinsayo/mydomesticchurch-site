@@ -55,6 +55,7 @@ section{padding:96px 0}
 .quote cite{font-style:normal;color:var(--muted);font-size:.9rem}
 /* private + price */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two>*{min-width:0}.dark li{overflow-wrap:anywhere}
 .dark{background:var(--deep);color:#E9E2D2;border-radius:10px;padding:44px}
 .dark h2{color:#fff;font-size:1.9rem}.dark p{color:#CFC8B6}
 .dark ul,.price ul{list-style:none;padding:0;margin:22px 0 0}
