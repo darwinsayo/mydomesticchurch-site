@@ -1,12 +1,10 @@
 // Waitlist sign-ups from the home page form.
 // Needs a D1 database bound to this Pages project as WAITLIST (the table is made on first use).
-// Optional email to Darwin for each sign-up: a "Send email" binding named SEND_EMAIL (Cloudflare
-// Email Routing on mydomesticchurch.org) plus the variables NOTIFY_TO (his address) and
-// NOTIFY_FROM (an address on the domain, e.g. waitlist@mydomesticchurch.org).
+// Optional email to Darwin for each new sign-up: add the secret RESEND_API_KEY (see below).
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 const clean = (v, max) => String(v || '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max);
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   let d;
   try { d = await request.json(); } catch { return json({ error: 'Sorry, that did not go through. Please try again.' }, 400); }
 
@@ -30,24 +28,23 @@ export async function onRequestPost({ request, env }) {
   }
   await env.WAITLIST.prepare('INSERT INTO waitlist (name, email, kids, hopes, updates) VALUES (?, ?, ?, ?, ?)').bind(name, email, kids, hopes, updates).run();
 
-  if (env.SEND_EMAIL && env.NOTIFY_TO && env.NOTIFY_FROM) {
-    try {
-      const { EmailMessage } = await import('cloudflare:email');
-      const body = `New waitlist family\n\nName: ${name}\nEmail: ${email}\nChildren: ${kids}\nUpdates: ${updates ? 'yes' : 'no'}\n\nHopes:\n${hopes || '(none)'}\n`;
-      const raw = [
-        `From: My Domestic Church waitlist <${env.NOTIFY_FROM}>`,
-        `To: ${env.NOTIFY_TO}`,
-        `Reply-To: ${email}`,
-        `Subject: New waitlist family: ${name.replace(/[\r\n]/g, ' ')}`,
-        `Message-ID: <${crypto.randomUUID()}@mydomesticchurch.org>`,
-        `Date: ${new Date().toUTCString()}`,
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=utf-8',
-        '',
-        body,
-      ].join('\r\n');
-      await env.SEND_EMAIL.send(new EmailMessage(env.NOTIFY_FROM, env.NOTIFY_TO, raw));
-    } catch (e) { console.log('waitlist email failed', String(e)); }
+  // Email to Darwin for each new sign-up, sent through Resend (free tier). Needs the secret
+  // RESEND_API_KEY on this Pages project. Without a domain set up in Resend, the sender must be
+  // onboarding@resend.dev and the email can only go to the Resend account's own address.
+  if (env.RESEND_API_KEY) {
+    const text = `A new family joined the tester waitlist.\n\nName: ${name}\nEmail: ${email}\nChildren's ages: ${kids}\nWants updates: ${updates ? 'yes' : 'no'}\n\nWhat they hope for:\n${hopes || '(nothing written)'}\n\nReply to this email to write to them.\n`;
+    waitUntil(fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, 'content-type': 'application/json' },
+      body: JSON.stringify({
+        from: `Tester waitlist <${env.NOTIFY_FROM || 'onboarding@resend.dev'}>`,
+        to: [env.NOTIFY_TO || 'darwin.sayo@gmail.com'],
+        reply_to: email,
+        subject: `New tester family: ${name.replace(/[\r\n]/g, ' ')}`,
+        text,
+      }),
+    }).then(async r => { if (!r.ok) console.log('waitlist email failed', r.status, await r.text()); })
+      .catch(e => console.log('waitlist email failed', String(e))));
   }
   return json({ ok: true });
 }
