@@ -12,7 +12,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (d.website || Number(d.ms) < 1000) return json({ ok: true });
 
   const name = clean(d.name, 100), email = clean(d.email, 200).toLowerCase(), kids = clean(d.kids, 300);
-  const updates = d.updates === true ? 1 : 0;
+  const updates = 1; // tester families agree to hear from us while testing
   const hopes = String(d.hopes || '').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, ' ').trim().slice(0, 1500);
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: "Please fill in your name and a valid email." }, 400);
 
@@ -32,7 +32,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   // RESEND_API_KEY on this Pages project. Without a domain set up in Resend, the sender must be
   // onboarding@resend.dev and the email can only go to the Resend account's own address.
   if (env.RESEND_API_KEY) {
-    const text = `A new family joined the tester waitlist.\n\nName: ${name}\nEmail: ${email}${kids ? `\nChildren: ${kids}` : ''}\nWants updates: ${updates ? 'yes' : 'no'}\n\nWhat they hope for:\n${hopes || '(nothing written)'}\n\nReply to this email to write to them.\n`;
+    const text = `A new family joined the tester waitlist.\n\nName: ${name}\nEmail: ${email}${kids ? `\nChildren: ${kids}` : ''}\n\nWhat they hope for:\n${hopes || '(nothing written)'}\n\nReply to this email to write to them.\n`;
     waitUntil(fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, 'content-type': 'application/json' },
