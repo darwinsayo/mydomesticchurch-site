@@ -32,7 +32,6 @@ a{color:inherit}
 .strip{background:var(--deep);color:#E9E2D2}
 .strip .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px;font-size:.88rem;letter-spacing:.04em}
 .strip span:before{content:"·";color:var(--gold);margin-right:10px}
-.strip span:first-child:before{content:none}
 section{padding:96px 0}
 .head{max-width:620px;margin:0 0 48px}.head h2{font-size:2.3rem}.head p{color:var(--muted);font-size:1.08rem}
 /* day */
