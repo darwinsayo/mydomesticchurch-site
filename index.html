@@ -17,7 +17,7 @@
 <meta name="description" content="Private family sites for Catholic homeschool families.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="My Domestic Church"><meta property="og:title" content="My Domestic Church"><meta property="og:description" content="Private family sites for Catholic homeschool families."><meta property="og:url" content="https://mydomesticchurch.org/"><meta property="og:image" content="https://mydomesticchurch.org/logo/share.jpg"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2F3D2B">
-<link rel="stylesheet" href="/home.css?v=10"><link rel="stylesheet" href="/header.css?v=2"></head><body>
+<link rel="stylesheet" href="/home.css?v=11"><link rel="stylesheet" href="/header.css?v=2"></head><body>
 <div class="top"><div class="wrap">
  <a class="logo" href="/"><img src="/logo/crest-shield.svg" alt="">My Domestic Church</a>
  <nav class="mnav" aria-label="Main">
@@ -32,7 +32,7 @@
 <header class="hero"><div class="wrap grid">
  <div>
   <div class="caps" style="margin-bottom:18px">For Catholic homeschool families</div>
-  <h1>Your home, ordered <i>toward heaven</i>.</h1>
+  <h1 class="rot"><span class="rot-line on">Your home, ordered <i>toward heaven</i>.</span><span class="rot-line" aria-hidden="true">Prayer, school and chores, <i>under one roof</i>.</span><span class="rot-line" aria-hidden="true">Less juggling. <i>More time for each other.</i></span></h1>
   <p class="lead">A private family site for your prayers, school days, chores and meals. One quiet place everyone checks in the morning, and then puts down.</p>
   <div class="actions"><a class="btn" href="/#waitlist">Join the waitlist</a><a class="link" href="#day">See a day inside &rarr;</a></div>
   <div class="sig"><div class="ini">D</div><div>Built by <b>Darwin</b>, a homeschool dad,<br>for his own family first.</div></div>
@@ -126,4 +126,18 @@
 
 <footer><div class="wrap"><nav class="fnav"><a href="/">Home</a><a href="/features">Features</a><a href="/screens">Screens &amp; family life</a><a href="/rewards">Rewards &amp; store</a><a href="/our-story">Our story</a><a href="/blog">Blog</a><a href="/help">Help</a><a href="/privacy">Privacy</a></nav><span>&copy; My Domestic Church &middot; mydomesticchurch.org</span><em>Ad majorem Dei gloriam</em></div></footer>
 <script src="/site.js?v=5"></script>
+<script>
+/* Home heading: gently fades between its lines. Shows only the first line if the visitor prefers less motion. */
+(function(){
+  var lines = document.querySelectorAll(".rot-line"); if (lines.length < 2) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var i = 0;
+  setInterval(function(){
+    if (document.hidden) return;
+    lines[i].classList.remove("on");
+    i = (i + 1) % lines.length;
+    lines[i].classList.add("on");
+  }, 6000);
+})();
+</script>
 </body></html>
