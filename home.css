@@ -20,6 +20,11 @@ a{color:inherit}
 .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
 .hero h1{font-size:3.3rem;letter-spacing:-.015em}
 .hero h1 i{color:var(--red)}
+/* Rotating heading: all lines share one spot, so the tallest sets the height and nothing below moves. */
+.hero h1.rot{display:grid}
+.rot-line{grid-area:1/1;opacity:0;transition:opacity 1.2s ease}
+.rot-line.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.rot-line{transition:none}.rot-line:not(:first-child){display:none}}
 .hero .lead{font-size:1.18rem;color:var(--muted);max-width:28em;margin:0 0 28px}
 .hero .actions{display:flex;gap:24px;align-items:center;margin-bottom:28px}
 .sig{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--muted);padding-bottom:64px}
