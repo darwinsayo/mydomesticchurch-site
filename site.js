@@ -16,6 +16,14 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-mail]'),function(e
   document.addEventListener("click", function(e){ if (menu.open && !menu.contains(e.target)) menu.open = false; });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && menu.open){ menu.open = false; menu.querySelector("summary").focus(); } });
 })();
+/* Google Analytics events. Only the event name and where it happened; never names, emails or anything typed. */
+function track(name, params){ try { if (typeof gtag === "function") gtag("event", name, params || {}); } catch (e) {} }
+/* Count taps on any "Join the waitlist" button, with which button it was. */
+document.addEventListener("click", function(e){
+  var a = e.target.closest && e.target.closest('a[href$="#waitlist"]'); if (!a) return;
+  var where = a.closest(".menu-panel") ? "menu" : a.closest(".mnav") ? "header" : "page";
+  track("waitlist_click", { link_location: where });
+});
 /* Waitlist form: sends to /api/waitlist and says thank you in place. */
 (function(){
   var f = document.getElementById("wl-form"); if (!f) return;
@@ -31,7 +39,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-mail]'),function(e
     fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, j: j }; }); })
       .then(function(res){
-        if (res.ok) { f.reset(); say("Thank you! You're on the tester waitlist. I'll write to you when there's a place for your family."); btn.disabled = false; return; }
+        if (res.ok) { f.reset(); track("sign_up", { method: "tester_waitlist" }); say("Thank you! You're on the tester waitlist. I'll write to you when there's a place for your family."); btn.disabled = false; return; }
         btn.disabled = false;
         say(res.j.error || ("Sorry, that didn't go through. Please write to " + SITE.email + " instead."), true);
       })
