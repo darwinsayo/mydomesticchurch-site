@@ -27,7 +27,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   const hopes = String(d.hopes || '').replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, ' ').trim().slice(0, 1500);
   if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: "Please fill in your name and a valid email." }, 400);
 
-  if (!env.WAITLIST) return json({ error: 'The waitlist opens in a day or two. Until then, please write to Darwin at darwin.sayo@gmail.com.' }, 503);
+  if (!env.WAITLIST) return json({ error: 'The waitlist opens in a day or two. Until then, please write to Darwin at hello@mydomesticchurch.org.' }, 503);
 
   await env.WAITLIST.prepare(`CREATE TABLE IF NOT EXISTS waitlist (
     id INTEGER PRIMARY KEY AUTOINCREMENT, created_at TEXT NOT NULL DEFAULT (datetime('now')),
