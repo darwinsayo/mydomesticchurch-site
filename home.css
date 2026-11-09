@@ -117,6 +117,7 @@ summary::-webkit-details-marker{display:none}
 @media (max-width:640px){.wl-row{grid-template-columns:1fr}}
 .wl .wl-check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;color:var(--ink);font-size:.95rem}
 .wl .wl-check input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--sage)}
+.cta .wl-note{margin:4px 0 -6px;max-width:none;text-align:left;font-size:.88rem;line-height:1.45;color:var(--muted)}
 .wl-fine{text-align:center;font-size:.8rem;color:var(--muted);margin:0}
 .wl-asks{list-style:none;padding:0;margin:0 auto 26px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-size:.92rem;color:var(--deep)}
 .wl-asks li:before{content:"\2713";color:var(--sage);font-weight:700;margin-right:7px}
