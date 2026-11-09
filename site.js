@@ -1,5 +1,5 @@
 /* Edit these to change what the pages show. */
-var SITE = { monthly: "$10", email: "darwin.sayo@gmail.com" };
+var SITE = { monthly: "$10", email: "hello@mydomesticchurch.org" };
 var m = document.getElementById("price-monthly"); if (m) m.textContent = SITE.monthly;
 var href = "mailto:" + SITE.email + "?subject=My%20Domestic%20Church";
 ["contact-btn","mail"].forEach(function(id){var e=document.getElementById(id); if(e) e.href=href;});
