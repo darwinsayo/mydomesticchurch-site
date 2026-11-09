@@ -32,7 +32,8 @@ document.addEventListener("click", function(e){
   f.addEventListener("submit", function(e){
     e.preventDefault();
     var d = {}; Array.prototype.forEach.call(f.elements, function(el){ if (el.name) d[el.name] = el.type === "checkbox" ? el.checked : el.value.trim(); });
-    if (!d.name || !d.email) { say("Please fill in your name and email.", true); return; }
+    if (!d.name || !d.email) { say("Please fill in your full name and email.", true); return; }
+    if (d.name.split(/\s+/).length < 2) { say("Please add your last name too.", true); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { say("That email address doesn't look right. Please check it.", true); return; }
     d.ms = Date.now() - opened;
     btn.disabled = true; say("Sending...");
