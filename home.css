@@ -124,3 +124,20 @@ summary::-webkit-details-marker{display:none}
 .wl-fine{text-align:center;font-size:.8rem;color:var(--muted);margin:0}
 .wl-asks{list-style:none;padding:0;margin:0 auto 26px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-size:.92rem;color:var(--deep)}
 .wl-asks li:before{content:"\2713";color:var(--sage);font-weight:700;margin-right:7px}
+.headrow{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;margin-bottom:48px}.headrow .head{margin:0}
+figure{margin:0}figcaption{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:.95rem;text-align:center;margin-top:12px}
+.mini{width:220px}.mini .scr{background:#22211e;border-radius:30px;padding:8px;box-shadow:0 18px 40px rgba(47,61,43,.18)}
+.mini img{display:block;width:100%;aspect-ratio:390/600;object-fit:cover;object-position:top;border-radius:23px;background:var(--paper)}
+.trio{display:flex;justify-content:center;gap:48px;margin:0 0 48px}
+.sheet{width:270px}.sheet img{display:block;width:100%;border-radius:6px;border:1px solid var(--line);box-shadow:0 14px 34px rgba(47,61,43,.16);transform:rotate(-2deg);background:#fff}
+.laptop{max-width:960px;margin:0 auto 56px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px rgba(47,61,43,.18);background:var(--paper)}
+.laptop .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--cream);border-bottom:1px solid var(--line)}
+.laptop .bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.laptop .bar span{flex:1;margin-left:10px;background:var(--paper);border-radius:6px;padding:3px 12px;font-size:.78rem;color:var(--muted);text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.laptop img{display:block;width:100%}
+@media(max-width:760px){
+ .headrow{grid-template-columns:1fr;gap:32px;justify-items:center}.headrow .head{justify-self:stretch}
+ .trio{overflow-x:auto;justify-content:flex-start;gap:20px;padding:4px 24px 12px;margin:0 -24px 36px;scroll-snap-type:x mandatory}
+ .trio .mini{flex:0 0 200px;scroll-snap-align:center}.mini{width:200px}
+ .sheet{width:240px}.laptop{margin-bottom:40px}
+}
