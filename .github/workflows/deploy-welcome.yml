@@ -1,0 +1,18 @@
+# Sends the welcome-email helper (welcome-worker/) to Cloudflare. Runs when that folder changes, or by hand.
+# Needs repository secret CLOUDFLARE_API_TOKEN with "Workers Scripts: Edit" (plus D1 and DNS on mydomesticchurch.org for the address).
+name: Deploy welcome helper
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['welcome-worker/**']
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx --yes wrangler@3 deploy
+        working-directory: welcome-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 2547837e41b37a51860276ff6bcf7275
