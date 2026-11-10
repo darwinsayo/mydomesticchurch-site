@@ -1,0 +1,20 @@
+# The welcome-email helper. Runs every 30 minutes, looks for new tester sign-ups, and emails Darwin a draft to approve.
+name = "mdc-welcome"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["*/30 * * * *"]
+
+# The same waitlist database the website saves sign-ups to.
+[[d1_databases]]
+binding = "WAITLIST"
+database_name = "mdc-waitlist"
+database_id = "512185a5-b533-4cbe-90fc-607e8a33b75e"
+
+[vars]
+REVIEW_TO = "darwin.sayo@gmail.com"
+FROM = "Darwin <hello@mydomesticchurch.org>"
+REPLY_TO = "hello@mydomesticchurch.org"
+SEND_HOUR_ET = "8"
+# Secrets (set once in Cloudflare, never in this file): RESEND_API_KEY, WELCOME_SECRET
