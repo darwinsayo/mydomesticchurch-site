@@ -141,3 +141,7 @@ figure{margin:0}figcaption{font-family:var(--serif);font-style:italic;color:var(
  .trio .mini{flex:0 0 200px;scroll-snap-align:center}.mini{width:200px}
  .sheet{width:240px}.laptop{margin-bottom:40px}
 }
+
+.wl[hidden]{display:none}
+.wl-thanks{font-family:Georgia,serif;font-size:1.5rem;text-align:center;margin:0 0 4px;color:var(--deep)}
+.wl-skip{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:inherit;font-size:.9rem;padding:4px}

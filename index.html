@@ -17,7 +17,7 @@
 <meta name="description" content="Private family sites for Catholic homeschool families.">
 <meta property="og:type" content="website"><meta property="og:site_name" content="My Domestic Church"><meta property="og:title" content="My Domestic Church"><meta property="og:description" content="Private family sites for Catholic homeschool families."><meta property="og:url" content="https://mydomesticchurch.org/"><meta property="og:image" content="https://mydomesticchurch.org/logo/share.jpg"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2F3D2B">
-<link rel="stylesheet" href="/home.css?v=14"><link rel="stylesheet" href="/header.css?v=2"></head><body>
+<link rel="stylesheet" href="/home.css?v=15"><link rel="stylesheet" href="/header.css?v=2"></head><body>
 <div class="top"><div class="wrap">
  <a class="logo" href="/"><img src="/logo/crest-shield.svg" alt="">My Domestic Church</a>
  <nav class="mnav" aria-label="Main">
@@ -140,11 +140,23 @@
   <p class="wl-msg" id="wl-msg" role="status"></p>
   <p class="wl-fine">As a tester family, you'll hear from me about the app while we test it. I'll only use your email for that. Never shared, never sold.</p>
  </form>
+ <form class="wl" id="wl-more" hidden novalidate>
+  <h3 class="wl-thanks">Thank you! You're on the tester waitlist.</h3>
+  <p class="wl-note">One more thing, if you have a minute. A few answers now mean I can set the app up around the way your family already works. Skip any you like, or all of them.</p>
+  <label for="wm-organize">How do you keep things organized today? A planner, the fridge, an app, memory, sticky notes?<textarea id="wm-organize" name="organize" rows="2" maxlength="600"></textarea></label>
+  <label for="wm-working">What's working well that you'd hate to lose?<textarea id="wm-working" name="working" rows="2" maxlength="600"></textarea></label>
+  <label for="wm-frustrating">What's the most frustrating part of a normal week?<textarea id="wm-frustrating" name="frustrating" rows="2" maxlength="600"></textarea></label>
+  <label for="wm-easier">If one thing got easier, what would it be?<textarea id="wm-easier" name="easier" rows="2" maxlength="600"></textarea></label>
+  <label for="wm-devices">Who will use the app, and on what? Your phone, a computer, the kids' own tablets or phones?<textarea id="wm-devices" name="devices" rows="2" maxlength="600"></textarea></label>
+  <button class="btn" type="submit" id="wm-send">Send my answers</button>
+  <button class="wl-skip" type="button" id="wm-skip">No thanks, I'm done</button>
+  <p class="wl-msg" id="wm-msg" role="status"></p>
+ </form>
  <p class="wl-small">Questions first? <a data-mail href="#">Write to Darwin</a>.</p>
 </div></div>
 
 <footer><div class="wrap"><nav class="fnav"><a href="/">Home</a><a href="/features">Features</a><a href="/screens">Screens &amp; family life</a><a href="/rewards">Rewards &amp; store</a><a href="/our-story">Our story</a><a href="/blog">Blog</a><a href="/help">Help</a><a href="/privacy">Privacy</a></nav><span>&copy; My Domestic Church &middot; mydomesticchurch.org</span><em>Ad majorem Dei gloriam</em></div></footer>
-<script src="/site.js?v=9"></script>
+<script src="/site.js?v=10"></script>
 <script>
 /* Home heading: gently fades between its lines. Shows only the first line if the visitor prefers less motion. */
 (function(){

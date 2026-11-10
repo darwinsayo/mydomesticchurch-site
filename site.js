@@ -40,10 +40,32 @@ document.addEventListener("click", function(e){
     fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, j: j }; }); })
       .then(function(res){
-        if (res.ok) { f.reset(); track("sign_up", { method: "tester_waitlist" }); say("Thank you! You're on the tester waitlist. I'll write to you when there's a place for your family."); btn.disabled = false; return; }
+        if (res.ok) {
+          track("sign_up", { method: "tester_waitlist" });
+          btn.disabled = false;
+          var more = document.getElementById("wl-more");
+          if (more && res.j.id) { f.hidden = true; more.hidden = false; more.dataset.id = res.j.id; more.dataset.email = d.email; more.scrollIntoView({ block: "center" }); f.reset(); return; }
+          f.reset(); say("Thank you! You're on the tester waitlist. I'll write to you when there's a place for your family."); return;
+        }
         btn.disabled = false;
         say(res.j.error || ("Sorry, that didn't go through. Please write to " + SITE.email + " instead."), true);
       })
       .catch(function(){ btn.disabled = false; say("Sorry, that didn't go through. Check your connection, or write to " + SITE.email + ".", true); });
+  });
+})();
+/* After sign-up: optional "a few more questions", saved on the same waitlist row. */
+(function(){
+  var m = document.getElementById("wl-more"); if (!m) return;
+  var msg = document.getElementById("wm-msg"), btn = document.getElementById("wm-send");
+  function done(t){ m.innerHTML = '<h3 class="wl-thanks">' + t + '</h3><p class="wl-note" style="text-align:center">I\'ll write to you when there\'s a place for your family.</p>'; }
+  document.getElementById("wm-skip").addEventListener("click", function(){ done("Thank you! You're on the tester waitlist."); });
+  m.addEventListener("submit", function(e){
+    e.preventDefault();
+    var a = {}; Array.prototype.forEach.call(m.elements, function(el){ if (el.tagName === "TEXTAREA" && el.value.trim()) a[el.name] = el.value.trim(); });
+    if (!Object.keys(a).length) { done("Thank you! You're on the tester waitlist."); return; }
+    btn.disabled = true; msg.textContent = "Sending..."; msg.className = "wl-msg";
+    fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ more: true, id: m.dataset.id, email: m.dataset.email, answers: a }) })
+      .then(function(r){ if (!r.ok) throw 0; done("Thank you, that helps a lot."); })
+      .catch(function(){ btn.disabled = false; msg.textContent = "Sorry, that didn't go through. You can skip it and I'll ask by email."; msg.className = "wl-msg err"; });
   });
 })();
