@@ -81,7 +81,7 @@ footer{background:var(--deep);color:#B9B29F;font-size:.85rem;padding:30px 0}
 footer .wrap{display:flex;justify-content:space-between;align-items:center}
 footer em{font-family:var(--serif);color:var(--wheat)}
 @media(max-width:760px){
- .hero .actions{gap:18px}.hero .actions .btn{white-space:nowrap}
+ .hero .actions{gap:18px}.hero .actions .btn,.hero .actions .link{white-space:nowrap}.hero .actions{gap:14px}.hero .actions .btn{padding-left:22px;padding-right:22px}
  .hero{padding-top:40px}.hero .grid{grid-template-columns:1fr}.hero h1{font-size:2.35rem}
  .sig{padding-bottom:36px}.phone{width:250px}.phone .scr{height:380px}
  .strip .wrap{gap:6px 18px}
@@ -145,3 +145,21 @@ figure{margin:0}figcaption{font-family:var(--serif);font-style:italic;color:var(
 .wl[hidden]{display:none}
 .wl-thanks{font-family:Georgia,serif;font-size:1.5rem;text-align:center;margin:0 0 4px;color:var(--deep)}
 .wl-skip{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:inherit;font-size:.9rem;padding:4px}
+
+/* short sign-up box under the top of the page */
+.quick{padding:0 0 8px;background:var(--cream)}
+.quick-box{max-width:640px;margin:0 auto;padding:30px 26px 22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(47,61,43,.12);position:relative;top:-22px;text-align:center}
+.quick-head h2{font-size:1.7rem;margin:0 0 6px}
+.quick-head p{color:var(--muted);margin:0 0 18px}
+.quick .wl-row{grid-template-columns:1fr 1fr}
+@media (max-width:640px){.quick .wl-row{grid-template-columns:1fr}.quick-box{padding:24px 18px 18px}}
+.quick .wl-note{text-align:left;font-size:.88rem;color:var(--muted)}
+.wl-opt{border:1px solid var(--line);border-radius:8px;padding:0 14px;background:var(--paper)}
+.wl-opt summary{cursor:pointer;font-weight:600;color:var(--deep);padding:13px 0}
+.wl-opt summary span{font-weight:400;color:var(--muted)}
+.wl-opt[open]{padding-bottom:14px}
+.wl-opt[open] summary{padding-bottom:8px}
+.wl-opt .wl-row{margin-top:12px}
+.wl:has(.wl-three){max-width:560px}
+.wl-opt .wl-row.wl-three{grid-template-columns:1fr}
+#quick{scroll-margin-top:70px}
