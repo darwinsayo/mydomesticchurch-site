@@ -18,7 +18,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-mail]'),function(e
 })();
 /* Google Analytics events. Only the event name and where it happened; never names, emails or anything typed. */
 function track(name, params){ try { if (typeof gtag === "function") gtag("event", name, params || {}); } catch (e) {} }
-/* Count taps on any "Join the waitlist" button, with which button it was. */
+/* Count taps on any "Start your free 30 days" button, with which button it was. */
 document.addEventListener("click", function(e){
   var a = e.target.closest && e.target.closest('a[href$="#waitlist"], a[href$="#quick"]'); if (!a) return;
   var where = a.closest(".menu-panel") ? "menu" : a.closest(".mnav") ? "header" : "page";
@@ -44,7 +44,7 @@ function wireWaitlist(f, msgId, btnId, onDone){
           btn.disabled = false;
           var more = document.getElementById("wl-more");
           if (more && res.j.id) { f.hidden = true; onDone(more); more.hidden = false; more.dataset.id = res.j.id; more.dataset.email = d.email; more.scrollIntoView({ block: "center" }); f.reset(); return; }
-          f.reset(); say("Thank you! You're on the waitlist. I'll write to you when there's a place for your family."); return;
+          f.reset(); say("Thank you! Watch your email for your setup link."); return;
         }
         btn.disabled = false;
         say(res.j.error || ("Sorry, that didn't go through. Please write to " + SITE.email + " instead."), true);
@@ -59,12 +59,12 @@ wireWaitlist(document.getElementById("wl-quick"), "ql-msg", "ql-send", function(
 (function(){
   var m = document.getElementById("wl-more"); if (!m) return;
   var msg = document.getElementById("wm-msg"), btn = document.getElementById("wm-send");
-  function done(t){ m.innerHTML = '<h3 class="wl-thanks">' + t + '</h3><p class="wl-note" style="text-align:center">I\'ll write to you when there\'s a place for your family.</p>'; }
-  document.getElementById("wm-skip").addEventListener("click", function(){ done("Thank you! You're on the waitlist."); });
+  function done(t){ m.innerHTML = '<h3 class="wl-thanks">' + t + '</h3><p class="wl-note" style="text-align:center">Watch your email for your setup link.</p>'; }
+  document.getElementById("wm-skip").addEventListener("click", function(){ done("Thank you! Watch your email for your setup link."); });
   m.addEventListener("submit", function(e){
     e.preventDefault();
     var a = {}; Array.prototype.forEach.call(m.elements, function(el){ if (el.tagName === "TEXTAREA" && el.value.trim()) a[el.name] = el.value.trim(); });
-    if (!Object.keys(a).length) { done("Thank you! You're on the waitlist."); return; }
+    if (!Object.keys(a).length) { done("Thank you! Watch your email for your setup link."); return; }
     btn.disabled = true; msg.textContent = "Sending..."; msg.className = "wl-msg";
     fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ more: true, id: m.dataset.id, email: m.dataset.email, answers: a }) })
       .then(function(r){ if (!r.ok) throw 0; done("Thank you, that helps a lot."); })
